@@ -1,7 +1,7 @@
-import 'package:etherwallet/model/wallet.dart';
-import 'package:etherwallet/service/address_service.dart';
-import 'package:etherwallet/service/configuration_service.dart';
-import 'package:etherwallet/service/contract_service.dart';
+import 'package:ambwallet/model/wallet.dart';
+import 'package:ambwallet/service/address_service.dart';
+import 'package:ambwallet/service/configuration_service.dart';
+import 'package:ambwallet/service/contract_service.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 

@@ -1,9 +1,10 @@
-import 'package:etherwallet/qrcode_reader_page.dart';
-import 'package:etherwallet/service/configuration_service.dart';
-import 'package:etherwallet/wallet_create_page.dart';
-import 'package:etherwallet/wallet_import_page.dart';
-import 'package:etherwallet/wallet_main_page.dart';
-import 'package:etherwallet/wallet_transfer_page.dart';
+import 'package:ambwallet/node_page.dart';
+import 'package:ambwallet/qrcode_reader_page.dart';
+import 'package:ambwallet/service/configuration_service.dart';
+import 'package:ambwallet/wallet_create_page.dart';
+import 'package:ambwallet/wallet_import_page.dart';
+import 'package:ambwallet/wallet_main_page.dart';
+import 'package:ambwallet/wallet_transfer_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:provider/provider.dart';
@@ -43,6 +44,7 @@ Map<String, WidgetBuilder> getRoutes(context) {
             return WalletTransferPage(title: "Send Tokens");
           },
         ),
+    '/node': (BuildContext context) => NodePage(),
     '/qrcode_reader': (BuildContext context) => QRCodeReaderPage(
           title: "Scan QRCode",
           onScanned: ModalRoute.of(context).settings.arguments,

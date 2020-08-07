@@ -1,7 +1,7 @@
-import 'package:etherwallet/model/wallet.dart';
-import 'package:etherwallet/service/address_service.dart';
-import 'package:etherwallet/service/configuration_service.dart';
-import 'package:etherwallet/service/contract_service.dart';
+import 'package:ambwallet/model/wallet.dart';
+import 'package:ambwallet/service/address_service.dart';
+import 'package:ambwallet/service/configuration_service.dart';
+import 'package:ambwallet/service/contract_service.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:web3dart/web3dart.dart' as web3;
 
@@ -72,8 +72,7 @@ class WalletHandler {
   Future<void> fetchOwnBalance() async {
     _store.dispatch(UpdatingBalance());
 
-    var tokenBalance = await _contractService
-        .getTokenBalance(web3.EthereumAddress.fromHex(state.address));
+    var tokenBalance = BigInt.from(0);
 
     var ethBalance = await _contractService
         .getEthBalance(web3.EthereumAddress.fromHex(state.address));

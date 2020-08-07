@@ -47,11 +47,10 @@ class ContractService implements IContractService {
     try {
       final transactionId = await client.sendTransaction(
         credentials,
-        Transaction.callContract(
-          contract: contract,
-          function: _sendFunction(),
-          parameters: [receiver, amount],
+        Transaction(
           from: from,
+          to: receiver,
+          value: EtherAmount.fromUnitAndValue(EtherUnit.wei, amount)
         ),
         chainId: networkId,
       );
@@ -70,13 +69,8 @@ class ContractService implements IContractService {
   }
 
   Future<BigInt> getTokenBalance(EthereumAddress from) async {
-    var response = await client.call(
-      contract: contract,
-      function: _balanceFunction(),
-      params: [from],
-    );
+    return BigInt.from(0);
 
-    return response.first as BigInt;
   }
 
   StreamSubscription listenTransfer(TransferEvent onTransfer, {int take}) {

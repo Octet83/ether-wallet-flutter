@@ -22,14 +22,17 @@ class PaperInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
-      obscureText: this.obscureText,
       controller: this.controller,
       onChanged: this.onChanged,
       maxLines: this.maxLines,
+      cursorColor: Colors.white,
+      style: TextStyle(color: Colors.white, fontSize: 14),
       decoration: InputDecoration(
+        fillColor: Colors.white,
         labelText: this.labelText,
         hintText: this.hintText,
         errorText: this.errorText,
+        
       ),
     );
   }

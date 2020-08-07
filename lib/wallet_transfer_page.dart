@@ -1,9 +1,7 @@
-import 'package:etherwallet/components/wallet/transfer_form.dart';
-import 'package:etherwallet/context/transfer/wallet_transfer_provider.dart';
+import 'package:ambwallet/components/wallet/transfer_form.dart';
+import 'package:ambwallet/context/transfer/wallet_transfer_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-
-import 'components/wallet/loading.dart';
 
 class WalletTransferPage extends HookWidget {
   WalletTransferPage({@required this.title});
@@ -34,18 +32,23 @@ class WalletTransferPage extends HookWidget {
           ),
         ],
       ),
-      body: transferStore.state.loading
-          ? Loading()
-          : TransferForm(
-              address: qrcodeAddress.value,
-              onSubmit: (address, amount) async {
-                var success = await transferStore.transfer(address, amount);
-
-                if (success) {
-                  Navigator.popUntil(context, ModalRoute.withName('/'));
-                }
-              },
-            ),
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+              colors: [Color.fromRGBO(79, 42, 152, 1), Color.fromRGBO(17, 35, 129, 1)],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter),
+        ),
+        child: TransferForm(
+                address: qrcodeAddress.value,
+                onSubmit: (address, amount) async {
+                  var success = transferStore.transfer(address, amount);
+                    Navigator.popUntil(context, ModalRoute.withName('/'));
+                },
+              ),
+      ),
     );
   }
 }

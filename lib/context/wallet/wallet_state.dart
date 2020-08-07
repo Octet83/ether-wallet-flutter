@@ -1,4 +1,4 @@
-import 'package:etherwallet/model/wallet.dart';
+import 'package:ambwallet/model/wallet.dart';
 
 abstract class WalletAction {}
 
@@ -11,7 +11,7 @@ class InitialiseWallet extends WalletAction {
 class BalanceUpdated extends WalletAction {
   BalanceUpdated(this.ethBalance, this.tokenBalance);
   final BigInt ethBalance;
-  final BigInt tokenBalance;
+  final dynamic tokenBalance;
 }
 
 class UpdatingBalance extends WalletAction {}

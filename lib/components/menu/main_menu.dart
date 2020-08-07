@@ -1,4 +1,4 @@
-import 'package:etherwallet/utils/wallet_icons.dart';
+import 'package:ambwallet/utils/wallet_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -14,40 +14,23 @@ class MainMenu extends StatelessWidget {
       child: ListView(
         children: <Widget>[
           ListTile(
-            title: Text("Get tokens"),
-            subtitle: Text("Claim some test tokens"),
-            trailing: Icon(WalletIcons.gem, color: Colors.blue),
-            onTap: () async {
-              var url = 'https://faucet.clempe.dev?address=${this.address}';
-              if (await canLaunch(url)) {
-                await launch(url);
-              } else {
-                throw 'Could not launch $url';
+              title: Text("My masternode"),
+              subtitle: Text("My masternode"),
+              trailing: Icon(
+                Icons.graphic_eq,
+                color: Colors.black,
+              ),
+              onTap: () => {
+                Navigator.pushNamed(context, '/node')
               }
-            },
-          ),
-          ListTile(
-            title: Text("Get ETH"),
-            subtitle: Text("Claim some test ether"),
-            trailing: Icon(
-              WalletIcons.ethereum,
-              color: Colors.black,
-            ),
-            onTap: () async {
-              var url = 'https://faucet.ropsten.be';
-              if (await canLaunch(url)) {
-                await launch(url);
-              } else {
-                throw 'Could not launch $url';
-              }
-            },
-          ),
+              
+              ),
           ListTile(
               title: Text("Reset wallet"),
               subtitle: Text("Wipe all wallet data"),
               trailing: Icon(
                 WalletIcons.skull,
-                color: Colors.orange,
+                color: Colors.red,
               ),
               onTap: this.onReset),
         ],

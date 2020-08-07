@@ -1,4 +1,4 @@
-package dev.clempe.etherwallet;
+package com.yannlevy.ambwallet;
 
 import android.os.Bundle;
 import io.flutter.app.FlutterActivity;

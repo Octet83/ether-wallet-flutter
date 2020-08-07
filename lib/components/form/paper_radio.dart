@@ -15,13 +15,15 @@ class PaperRadio extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+    
       children: <Widget>[
         Radio(
           value: value,
           groupValue: groupValue,
           onChanged: onChanged,
+          activeColor: Colors.white,
         ),
-        Text(title),
+        Text(title,style:TextStyle(color:Colors.white)),
       ],
     );
   }

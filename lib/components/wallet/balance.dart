@@ -1,5 +1,5 @@
-import 'package:etherwallet/components/copyButton/copy_button.dart';
-import 'package:etherwallet/utils/eth_amount_formatter.dart';
+import 'package:ambwallet/components/copyButton/copy_button.dart';
+import 'package:ambwallet/utils/eth_amount_formatter.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
@@ -16,23 +16,21 @@ class Balance extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Text(address ?? ""),
+          Text(address ?? "", style:TextStyle(color: Colors.white)),
           CopyButton(
+            
             text: const Text('Copy address'),
             value: address,
           ),
           QrImage(
             data: address ?? "",
             size: 150.0,
+            foregroundColor: Colors.white,
           ),
+          SizedBox(height:18),
           Text(
-            "${EthAmountFormatter(tokenBalance).format()} tokens",
+            "${EthAmountFormatter(ethBalance).format()} AMB",
             style: Theme.of(context).textTheme.body2.apply(fontSizeDelta: 6),
-          ),
-          Text(
-            "${EthAmountFormatter(ethBalance).format()} eth",
-            style:
-                Theme.of(context).textTheme.body2.apply(color: Colors.blueGrey),
           )
         ],
       ),

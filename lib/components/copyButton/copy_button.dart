@@ -9,6 +9,10 @@ class CopyButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return OutlineButton(
+      color: Colors.white,
+      disabledBorderColor: Colors.white,
+      textColor: Colors.white,
+      highlightColor: Colors.white,
       child: this.text,
       onPressed: () {
         Clipboard.setData(ClipboardData(text: this.value));

@@ -1,6 +1,6 @@
-import 'package:etherwallet/service/configuration_service.dart';
+import 'package:ambwallet/service/configuration_service.dart';
 import 'package:bip39/bip39.dart' as bip39;
-import 'package:etherwallet/utils/hd_key.dart';
+import 'package:ambwallet/utils/hd_key.dart';
 import "package:hex/hex.dart";
 import 'package:web3dart/credentials.dart';
 

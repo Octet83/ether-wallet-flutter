@@ -1,4 +1,4 @@
-import 'package:etherwallet/components/wallet/balance.dart';
+import 'package:ambwallet/components/wallet/balance.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'components/dialog/alert.dart';
@@ -67,10 +67,20 @@ class WalletMainPage extends HookWidget {
           ),
         ],
       ),
-      body: Balance(
-        address: store.state.address,
-        ethBalance: store.state.ethBalance,
-        tokenBalance: store.state.tokenBalance,
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+              colors: [Color.fromRGBO(79, 42, 152, 1), Color.fromRGBO(17, 35, 129, 1)],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter),
+        ),
+        child: Balance(
+          address: store.state.address,
+          ethBalance: store.state.ethBalance,
+          tokenBalance: store.state.tokenBalance,
+        ),
       ),
     );
   }
